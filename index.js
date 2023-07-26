@@ -1,17 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require('cors')
+const cors = require("cors");
 const dotenv = require("dotenv");
 const AuthRoute = require("./Routes/AuthRoute");
 const UserRoute = require("./Routes/UserRoute");
 const PostRoute = require("./Routes/PostRoute");
+const UploadRoute = require("./Routes/UploadRoute");
 const app = express();
 
+app.use(express.static('public'));
+app.use('/images', express.static('images'))
 //! Middleware
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors())
+app.use(cors());
 
 dotenv.config();
 
@@ -31,3 +34,4 @@ mongoose
 app.use("/auth", AuthRoute);
 app.use("/user", UserRoute);
 app.use("/post", PostRoute);
+app.use("/upload", UploadRoute);
