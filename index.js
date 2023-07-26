@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const AuthRoute = require("./Routes/AuthRoute");
 const UserRoute = require("./Routes/UserRoute");
+const PostRoute = require("./Routes/PostRoute");
 const app = express();
 
 //! Middleware
@@ -27,3 +28,4 @@ mongoose
 //! Routes
 app.use("/auth", AuthRoute);
 app.use("/user", UserRoute);
+app.use("/post", PostRoute);
