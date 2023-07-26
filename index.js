@@ -1,9 +1,9 @@
-
-const express = require('express');
+const express = require("express");
 const bodyParser = require("body-parser");
-const mongoose = require('mongoose');
-const dotenv  = require('dotenv')
-const AuthRoute = require('./Routes/AuthRoute')
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const AuthRoute = require("./Routes/AuthRoute");
+const UserRoute = require("./Routes/UserRoute");
 const app = express();
 
 //! Middleware
@@ -25,4 +25,5 @@ mongoose
   .catch((error) => console.log("Error", error));
 
 //! Routes
-app.use('/auth', AuthRoute)
+app.use("/auth", AuthRoute);
+app.use("/user", UserRoute);
