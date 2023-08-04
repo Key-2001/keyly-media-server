@@ -38,4 +38,4 @@ app.use("/user", UserRoute);
 app.use("/post", PostRoute);
 app.use("/upload", UploadRoute);
 app.use("/chat", ChatRoute);
-app.use("/message", MessageRoute)
+app.use("/messages", MessageRoute)
